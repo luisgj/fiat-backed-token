@@ -1,0 +1,262 @@
+{
+  "manifestVersion": "3.2",
+  "admin": {
+    "address": "0xbC5a01a0F196611b69a228d023863626F486a6d5",
+    "txHash": "0xe967d6594bc8b967318156195da80f23819d61754b2ccff0191e27c40a53c6fd"
+  },
+  "proxies": [
+    {
+      "address": "0xb835D401D9977131aE9ae1632fCA7f42b8DAf4fD",
+      "txHash": "0xb934e3eec4ecf315908deb691251725dc8db95506b1a33e9e05435a5b44b9301",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x50edF9545Dd15b515f29c23155938c79BD0A2df2",
+      "txHash": "0x6cbf0bea9149a7ed7e466d829c42dc42a7823648162ce985cef181fa6e3112ae",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x91129A6A4c2612e2E36D52b5aC67D43294c539F6",
+      "txHash": "0x2723f0fd062f5fa024c8ad7b62031d554f64a64d85ff40eecb13bd7a72099b28",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "15a470a11c785a959105d2a45c9965404d88f1d907d717f43de72797428b4b9a": {
+      "address": "0x5Cb4ac32ceE34BE1CB2B7832d8dCAD6AC33006d0",
+      "txHash": "0xb618f57d59d389b41b95f19c1aa5d9ec36e8eb2c590ca6ecc54f77905dfd8f32",
+      "layout": {
+        "storage": [
+          {
+            "contract": "OwnableV0",
+            "label": "_owner",
+            "type": "t_address",
+            "src": "Ownable.sol:36"
+          },
+          {
+            "contract": "BlackListable",
+            "label": "blacklister",
+            "type": "t_address",
+            "src": "BlackListable.sol:28"
+          },
+          {
+            "contract": "BlackListable",
+            "label": "blacklisted",
+            "type": "t_mapping(t_address,t_bool)",
+            "src": "BlackListable.sol:29"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "name",
+            "type": "t_string_storage",
+            "src": "FiatBacked.sol:34"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "symbol",
+            "type": "t_string_storage",
+            "src": "FiatBacked.sol:35"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "decimals",
+            "type": "t_uint8",
+            "src": "FiatBacked.sol:36"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "currency",
+            "type": "t_string_storage",
+            "src": "FiatBacked.sol:37"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "masterMinter",
+            "type": "t_address",
+            "src": "FiatBacked.sol:38"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "initialized",
+            "type": "t_bool",
+            "src": "FiatBacked.sol:39"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "balances",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "FiatBacked.sol:41"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "allowed",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+            "src": "FiatBacked.sol:42"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "totalSupply_",
+            "type": "t_uint256",
+            "src": "FiatBacked.sol:43"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "minters",
+            "type": "t_mapping(t_address,t_bool)",
+            "src": "FiatBacked.sol:44"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "minterAllowed",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "FiatBacked.sol:45"
+          }
+        ],
+        "types": {
+          "t_string_storage": {
+            "label": "string"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+            "label": "mapping(address => mapping(address => uint256))"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)"
+          }
+        }
+      }
+    },
+    "72492225332c338edde0cdbad516fb2490157460389f32b91660f8a867486200": {
+      "address": "0x96A2db1900c628E5ddce28D10c7C088b70A017eC",
+      "txHash": "0x8baa69ac037e0dec36b1463a8ff36143255027e3c8a0a7571f393152c540280b",
+      "layout": {
+        "storage": [
+          {
+            "contract": "OwnableV0",
+            "label": "_owner",
+            "type": "t_address",
+            "src": "Ownable.sol:36"
+          },
+          {
+            "contract": "BlackListable",
+            "label": "blacklister",
+            "type": "t_address",
+            "src": "BlackListable.sol:28"
+          },
+          {
+            "contract": "BlackListable",
+            "label": "blacklisted",
+            "type": "t_mapping(t_address,t_bool)",
+            "src": "BlackListable.sol:29"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "name",
+            "type": "t_string_storage",
+            "src": "FiatBacked.sol:34"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "symbol",
+            "type": "t_string_storage",
+            "src": "FiatBacked.sol:35"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "decimals",
+            "type": "t_uint8",
+            "src": "FiatBacked.sol:36"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "currency",
+            "type": "t_string_storage",
+            "src": "FiatBacked.sol:37"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "masterMinter",
+            "type": "t_address",
+            "src": "FiatBacked.sol:38"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "initialized",
+            "type": "t_bool",
+            "src": "FiatBacked.sol:39"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "balances",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "FiatBacked.sol:41"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "allowed",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+            "src": "FiatBacked.sol:42"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "totalSupply_",
+            "type": "t_uint256",
+            "src": "FiatBacked.sol:43"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "minters",
+            "type": "t_mapping(t_address,t_bool)",
+            "src": "FiatBacked.sol:44"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "minterAllowed",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "FiatBacked.sol:45"
+          }
+        ],
+        "types": {
+          "t_string_storage": {
+            "label": "string"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+            "label": "mapping(address => mapping(address => uint256))"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)"
+          }
+        }
+      }
+    }
+  }
+}
