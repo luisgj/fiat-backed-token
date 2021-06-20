@@ -1,0 +1,186 @@
+## 06/19/2021
+
+Did some research last weekend on this smart contract hype. After some use cases on what would be a good exploratory analisis, Fiat backed stablecoins appealed me the most as we can explore the idea of creating an exchanger contract that can be settled on-chain and have good differenciators.
+
+### Project
+
+Decided to move forward with what I call `Fiat Backed Token Exchange` to mock and exchange swap with a smart contract that can instantly swap two fiat backed stablecoins. I need some way to verify the 1:1 peg always and simulate on/off ramps but I 'll deal with that later.
+
+### Stack
+
+It seems clear that inmutability of a smart contract has its disadvantages when maintaining it. How can we update and get new versions out there? Eg. support ERC777. It was clear that we needed to use the one of the proxy patterns that openzeppelin has proposed. 
+
+To scaffold what we need to get this started i decided to use:
+
+- truffle as the configuration platform to migrate, deploy and test smart contracts
+- solidity 0.8.5 as our evm compiler
+- openzeppelin-contracts to import very useful interfaces and libraries
+- openzeppelin/truffle-upgrades to have a clear API to bootstrap upgradeable proxies.
+- ganache as local testnet
+- rinkeby as public testnet
+- metamask to handle accounts
+- gnosis multisig to handle the proxy admin ownership.
+
+### Initial setup
+
+- Centre's USDC smart contract is upgradeable and uses the Unstructured Storage proxy pattern to handle their upgrades. I'll fork their implementation contract in solidity and start from there.
+
+- Forked the USDC implementation code from:
+https://etherscan.io/address/0xa2327a938febf5fec13bacfb16ae10ecbc4cbdcf#code
+I deleted all scaffolded code from their openzeppelin imports and imported the libraries myself
+
+- Refactored the ownable contract to remove the constructor and make it abstract
+
+- Scaffoled some tests with `truffle create test FiatBackedV0`
+  
+- Edited `truffle-config.js` to set up ganache as development and rinkeby as pubic testnet. I'm reading my mneumonic from a `.secret` file not in VCS.
+
+### Deploying and Compiling
+
+After a few compiling errors I think I got this fork on a good spot. Compiling is working but tests are failing with `truffle test` beacause the contracts are not deployed any where. 
+
+Wrote the first migration to deploy the first contract as an upgradeable proxy in ganache and ran `truffle migrate`.
+The proxy was deployed successfully:
+
+Note: We use a transparentUpgradeableProxy pattern for simplicity, although the UUPS pattern is the current recommended one.
+
+Next up, deploying them on rinkeby. This is very easy with the truffle suite by just `truffle migrate --network rinkeby`
+
+```
+Compiling your contracts...
+===========================
+> Everything is up to date, there is nothing to compile.
+
+
+
+Starting migrations...
+======================
+> Network name:    'rinkeby'
+> Network id:      4
+> Block gas limit: 10000000 (0x989680)
+
+
+1_initial_migration.js
+======================
+
+   Deploying 'Migrations'
+   ----------------------
+   > transaction hash:    0xbdc441643b032bd5cbed46ee13c3a80b66f33257d3709ac0d58696b4c445494c
+   > Blocks: 0            Seconds: 12
+   > contract address:    0xA2f8050ffc07BeD8535D0a6A53a6579A1EE5FB01
+   > block number:        8795017
+   > block timestamp:     1624161657
+   > account:             0x29e13187F7fa53b125743CAbd9E24c2888F10Df7
+   > balance:             17.749455981
+   > gas used:            245588 (0x3bf54)
+   > gas price:           1 gwei
+   > value sent:          0 ETH
+   > total cost:          0.000245588 ETH
+
+   Pausing for 2 confirmations...
+   ------------------------------
+   > confirmation number: 1 (block: 8795018)
+   > confirmation number: 2 (block: 8795019)
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:         0.000245588 ETH
+
+
+2_deploy_proxy_v0.migrate.js
+============================
+
+   Deploying 'FiatBackedV0'
+   ------------------------
+   > transaction hash:    0x7a9571bfef2d8214db0dad7851443c871ed22289a4c5de66993c38febbb33596
+   > Blocks: 0            Seconds: 8
+   > contract address:    0xa1Ae610B881d493f04A256Ee42054F31f0c3e2Cb
+   > block number:        8795021
+   > block timestamp:     1624161717
+   > account:             0x29e13187F7fa53b125743CAbd9E24c2888F10Df7
+   > balance:             17.746068531
+   > gas used:            3341537 (0x32fce1)
+   > gas price:           1 gwei
+   > value sent:          0 ETH
+   > total cost:          0.003341537 ETH
+
+   Pausing for 2 confirmations...
+   ------------------------------
+   > confirmation number: 1 (block: 8795022)
+   > confirmation number: 2 (block: 8795023)
+
+   Deploying 'ProxyAdmin'
+   ----------------------
+   > transaction hash:    0x9804be0d38ff796e8c6396d2d63d21d60c09afc6870753522fdcabd5dace9f67
+   > Blocks: 1            Seconds: 12
+   > contract address:    0xF800c52760BBf98E8C0F2168c77cdf8B72CFcF58
+   > block number:        8795024
+   > block timestamp:     1624161762
+   > account:             0x29e13187F7fa53b125743CAbd9E24c2888F10Df7
+   > balance:             17.745584511
+   > gas used:            484020 (0x762b4)
+   > gas price:           1 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00048402 ETH
+
+   Pausing for 2 confirmations...
+   ------------------------------
+   > confirmation number: 1 (block: 8795025)
+   > confirmation number: 2 (block: 8795026)
+
+   Deploying 'TransparentUpgradeableProxy'
+   ---------------------------------------
+   > transaction hash:    0x7e67acfc83fa1cb08f067dbd381c63a21bb50b28039ee735c6b06868256d75f9
+   > Blocks: 1            Seconds: 12
+   > contract address:    0x8e1370Ab3EC9444Ec69a324C8eAe4491Ab0f8404
+   > block number:        8795027
+   > block timestamp:     1624161807
+   > account:             0x29e13187F7fa53b125743CAbd9E24c2888F10Df7
+   > balance:             17.744823117
+   > gas used:            761394 (0xb9e32)
+   > gas price:           1 gwei
+   > value sent:          0 ETH
+   > total cost:          0.000761394 ETH
+
+   Pausing for 2 confirmations...
+   ------------------------------
+   > confirmation number: 1 (block: 8795028)
+   > confirmation number: 2 (block: 8795029)
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:         0.004586951 ETH
+
+
+Summary
+=======
+> Total deployments:   4
+> Final cost:          0.004832539 ETH
+```
+
+As we can see in the output, a `ProxyAdmin` and `TransparentUgradeableProxy` were deployed to the blockchain.
+
+We can verify that by searching for the address in any block explorer. The token address should be the one of the prxy that will delegate to the implementation contract.
+
+```shell
+truffle(rinkeby)> contract = await FiatBackedV0.deployed()
+truffle(rinkeby)> contract.address
+'0x8e1370Ab3EC9444Ec69a324C8eAe4491Ab0f8404'
+```
+https://rinkeby.etherscan.io/address/0x8e1370Ab3EC9444Ec69a324C8eAe4491Ab0f8404#code
+
+Nice... this is the address of the proxy contract.
+
+### Securing the admin
+
+Read some guy showing how to secure a ProxyAdmin contract ownership using multisig. So Created a gnosis safe and wrote another migration to transfer the ownership of the proxy admin to the safe address. Now this address will be the only one able to upgrade the proxy contract to a new version.
+
+Transactions are reflected here after the migration:
+https://rinkeby.etherscan.io/address/0xf800c52760bbf98e8c0f2168c77cdf8b72cfcf58#events
+
+Next up.. Write some tests, create the exchange contract and start with the web app thingy.
+
+
+### 06/20/2021

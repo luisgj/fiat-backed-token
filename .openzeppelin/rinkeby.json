@@ -1,0 +1,134 @@
+{
+  "manifestVersion": "3.2",
+  "admin": {
+    "address": "0xF800c52760BBf98E8C0F2168c77cdf8B72CFcF58",
+    "txHash": "0x9804be0d38ff796e8c6396d2d63d21d60c09afc6870753522fdcabd5dace9f67"
+  },
+  "proxies": [
+    {
+      "address": "0x8e1370Ab3EC9444Ec69a324C8eAe4491Ab0f8404",
+      "txHash": "0x7e67acfc83fa1cb08f067dbd381c63a21bb50b28039ee735c6b06868256d75f9",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "72492225332c338edde0cdbad516fb2490157460389f32b91660f8a867486200": {
+      "address": "0xa1Ae610B881d493f04A256Ee42054F31f0c3e2Cb",
+      "txHash": "0x7a9571bfef2d8214db0dad7851443c871ed22289a4c5de66993c38febbb33596",
+      "layout": {
+        "storage": [
+          {
+            "contract": "OwnableV0",
+            "label": "_owner",
+            "type": "t_address",
+            "src": "Ownable.sol:36"
+          },
+          {
+            "contract": "BlackListable",
+            "label": "blacklister",
+            "type": "t_address",
+            "src": "BlackListable.sol:28"
+          },
+          {
+            "contract": "BlackListable",
+            "label": "blacklisted",
+            "type": "t_mapping(t_address,t_bool)",
+            "src": "BlackListable.sol:29"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "name",
+            "type": "t_string_storage",
+            "src": "FiatBacked.sol:34"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "symbol",
+            "type": "t_string_storage",
+            "src": "FiatBacked.sol:35"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "decimals",
+            "type": "t_uint8",
+            "src": "FiatBacked.sol:36"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "currency",
+            "type": "t_string_storage",
+            "src": "FiatBacked.sol:37"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "masterMinter",
+            "type": "t_address",
+            "src": "FiatBacked.sol:38"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "initialized",
+            "type": "t_bool",
+            "src": "FiatBacked.sol:39"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "balances",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "FiatBacked.sol:41"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "allowed",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+            "src": "FiatBacked.sol:42"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "totalSupply_",
+            "type": "t_uint256",
+            "src": "FiatBacked.sol:43"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "minters",
+            "type": "t_mapping(t_address,t_bool)",
+            "src": "FiatBacked.sol:44"
+          },
+          {
+            "contract": "FiatBackedV0",
+            "label": "minterAllowed",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "FiatBacked.sol:45"
+          }
+        ],
+        "types": {
+          "t_string_storage": {
+            "label": "string"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+            "label": "mapping(address => mapping(address => uint256))"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)"
+          }
+        }
+      }
+    }
+  }
+}
