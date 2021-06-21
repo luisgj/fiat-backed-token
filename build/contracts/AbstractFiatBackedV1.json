@@ -202,7 +202,7 @@
         23
       ],
       "IERC20": [
-        1081
+        1172
       ]
     },
     "id": 24,
@@ -226,7 +226,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 24,
-        "sourceUnit": 1082,
+        "sourceUnit": 1173,
         "src": "1176:56:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -239,7 +239,7 @@
               "id": 3,
               "name": "IERC20",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 1081,
+              "referencedDeclaration": 1172,
               "src": "1276:6:0"
             },
             "id": 4,
@@ -248,14 +248,14 @@
           }
         ],
         "contractDependencies": [
-          1081
+          1172
         ],
         "contractKind": "contract",
         "fullyImplemented": false,
         "id": 23,
         "linearizedBaseContracts": [
           23,
-          1081
+          1172
         ],
         "name": "AbstractFiatBackedV1",
         "nodeType": "ContractDefinition",
@@ -486,7 +486,7 @@
         23
       ],
       "IERC20": [
-        1081
+        1172
       ]
     },
     "id": 24,
@@ -510,7 +510,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 24,
-        "sourceUnit": 1082,
+        "sourceUnit": 1173,
         "src": "1176:56:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -523,7 +523,7 @@
               "id": 3,
               "name": "IERC20",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 1081,
+              "referencedDeclaration": 1172,
               "src": "1276:6:0"
             },
             "id": 4,
@@ -532,14 +532,14 @@
           }
         ],
         "contractDependencies": [
-          1081
+          1172
         ],
         "contractKind": "contract",
         "fullyImplemented": false,
         "id": 23,
         "linearizedBaseContracts": [
           23,
-          1081
+          1172
         ],
         "name": "AbstractFiatBackedV1",
         "nodeType": "ContractDefinition",
@@ -769,7 +769,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.1",
-  "updatedAt": "2021-06-20T00:47:07.258Z",
+  "updatedAt": "2021-06-21T06:47:03.404Z",
   "devdoc": {
     "kind": "dev",
     "methods": {
